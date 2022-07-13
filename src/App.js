@@ -1,25 +1,54 @@
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
+import NotesList from './components/NotesList';
 import './App.css';
+import NavBar from './components/NavBar';
+import SearchBar from './components/SearchBar';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+    const [mode, setMode] = useState('light');
+    const [inputText, setInputText] = useState('');
+    const [notes, setNotes] = useState([
+        {text:'sample', id:Math.random()*100, date: '6/13/2022'}
+    ]);
+    const [filteredNotes, setFilteredNotes] = useState([]);
+
+    
+
+    useEffect(() => {
+        const savedNotes = JSON.parse(localStorage.getItem('react-notes-app-data'))
+        if(savedNotes){
+            setNotes(savedNotes)
+        }
+    }, [])
+
+    useEffect(() => {
+        localStorage.setItem('react-notes-app-data', JSON.stringify(notes));
+    }, [notes])
+
+    useEffect(() => {
+        setFilteredNotes(notes);
+    }, [notes])
+
+    return(
+        <div className={`app-container ${mode === 'dark' ? 'bg-color-black' : 'bg-color-white'}`}>
+            <div className={`main-container`}>
+                <NavBar mode={mode} setMode={setMode}/>
+                <SearchBar 
+                notes={notes}
+                filteredNotes={filteredNotes}
+                setFilteredNotes={setFilteredNotes}
+                />
+                <NotesList 
+                inputText={inputText} 
+                setInputText={setInputText}
+                notes={notes}
+                setNotes={setNotes}
+                filteredNotes={filteredNotes}
+                />
+            </div>
+        </div>
+        
+    )
 }
 
 export default App;

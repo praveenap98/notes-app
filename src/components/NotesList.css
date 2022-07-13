@@ -1,0 +1,22 @@
+.notes-container {
+    /* border: 1px solid red; */
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+.content > textarea {
+    resize: none;
+    background-color: rgb(127, 248, 242);
+    border: none;
+    font-size: 15px;
+}
+
+.content > textarea:focus {
+    outline: none;
+}
+
+.green {
+    background-color: rgb(127, 248, 242);
+}
+

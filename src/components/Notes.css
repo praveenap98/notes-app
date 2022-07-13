@@ -1,0 +1,38 @@
+.note {
+    background-color: #fafa82;
+    margin: 0 10px 10px 0;
+    padding: 15px;
+    width: 300px;
+    min-width: 300px;
+    border-radius: 10px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    white-space: pre-wrap;
+}
+
+.note .footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.green {
+    background-color: rgb(127, 248, 242);
+}
+
+.button {
+    padding:5px 10px;
+    border-radius:10px;
+    border: none;
+    background-color: rgb(217, 217, 217);
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
+.button:active {
+    background-color: #d0cece;
+}
