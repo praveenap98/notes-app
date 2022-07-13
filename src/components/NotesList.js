@@ -31,7 +31,7 @@ const NotesList = ({ inputText, setInputText, notes, setNotes, filteredNotes }) 
             }
             <div className='note green'>
             <div className='content'>
-                <textarea onChange={changeHandler} placeholder='Type to add a notes...' rows='8' cols='35' value={inputText}></textarea>
+                <textarea onChange={changeHandler} placeholder='Type to add a notes...' rows='8' cols='32' value={inputText}></textarea>
             </div>
             <div className='footer'>
                 <span>{200 - inputText.trim().length} Remaining</span>
